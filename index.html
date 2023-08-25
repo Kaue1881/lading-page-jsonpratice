@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9035dde485.js" crossorigin="anonymous"></script>
+
   <title>Frontend Mentor | Job Listings</title>
 </head>
 <body>
@@ -15,6 +17,79 @@
    <header>
 
     <img src="./images/bg-header-desktop.svg" width="100%" alt="">
+    
+    <div class="filtro-box">
+      <div class="sub-filtro-box filters">
+        <div class="onfilter" data-filter="fullstack">
+          <button name="full">Fullstack</button>
+        <img src="./images/icon-remove.svg" name="full" alt="">
+
+        </div>
+        <div class="onfilter" data-filter="front">
+          <button>FrontEnd</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="back">
+          <button>BackEnd</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="junior">
+          <button>Junior</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="midweight">
+          <button>Midweight</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="senior">
+          <button>Senior</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="html">
+          <button>Html</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="css">
+          <button>CSS</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="js">
+          <button>JS</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="python">
+          <button>Python</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="django">
+          <button>Django</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="sass">
+          <button>Sass</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="vue">
+          <button>Vue</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="react">
+          <button>React</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="ruby">
+          <button>Ruby</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+        <div class="onfilter" data-filter="ror">
+          <button>Ror</button>
+<img src="./images/icon-remove.svg" alt="">        
+</div>
+      </div>
+      <div class="sub-filtro-box clear-box">
+        <p class="clear" onclick="clearfilter()">Clear</p>
+      </div>
+    </div>
 
    </header>
 <main>
@@ -23,19 +98,23 @@
 </main>
 
 <!-- script para listagem de users -->
-  <script>
-
-    async function fetchJobListings() {
-            try {
-              const response = await fetch('data.json');
-              const data = await response.json();
-              
-              const jobListingsDiv = document.querySelector('#lista-user');
-
-                data.forEach(job => {
+<script>
+  
+  async function fetchJobListings() {
+    try {
+      const response = await fetch('data.json');
+      const data = await response.json();
+      
+      const jobListingsDiv = document.querySelector('#lista-user');
+      
+              data.forEach(job => {
                 console.log(job.new, typeof job.new); // Verificar o valor e o tipo da propriedade "new"
-                // Resto do seu código aqui...
+                function filtroTESTE() {
+
+                  console.log(job.contract)
+                }
               });
+
               data.forEach(job => {
                 const jobDiv = document.createElement('li');
                 jobDiv.innerHTML = `
@@ -55,13 +134,13 @@
           <hr class="corte" style="display:none;">
           <div class="tecnology">
             
-             <span class="tecnology-span ${job.role !== undefined ? 'role-on' : 'role-off'}" id="tec-span-1">${job.role !== undefined ? job.role : ''}</span>
-             <span class="tecnology-span ${job.level !== undefined ? 'level-on' : 'level-off'}" id="tec-span-1">${job.level !== undefined ? job.level : ''}</span>
-            <span class="tecnology-span ${job.languages[0] !== undefined ? 'lang-on' : 'lang-off'}" id="tec-span-1">${job.languages[0] !== undefined ? job.languages[0] : ''}</span>
-            <span class="tecnology-span ${job.languages[1] !== undefined ? 'lang-on' : 'lang-off'}" id="tec-span-2">${job.languages[1] !== undefined ? job.languages[1] : ''}</span>
-            <span class="tecnology-span ${job.languages[2] !== undefined ? 'lang-on' : 'lang-off'}" id="tec-span-3">${job.languages[2] !== undefined ? job.languages[2] : ''}</span>
-            <span class="tecnology-span ${job.tools[0] !== undefined ? 'tool-on' : 'tool-off'}" id="tec-span-4">${job.tools[0] !== undefined ? job.tools[0] : ''}</span>
-            <span class="tecnology-span ${job.tools[1] !== undefined ? 'tool-on' : 'tool-off'}" id="tec-span-5">${job.tools[1] !== undefined ? job.tools[1] : ''}</span>
+            <span  class="tecnology-span role ${job.role !== undefined ? 'role-on' : 'role-off'}" id="tec-span-1">${job.role !== undefined ? job.role : ''}</span>
+            <span class="tecnology-span level ${job.level !== undefined ? 'level-on' : 'level-off'}" id="tec-span-2">${job.level !== undefined ? job.level : ''}</span>
+            <span class="tecnology-span lang1 ${job.languages[0] !== undefined ? 'lang-on' : 'lang-off'}" id="tec-span-3">${job.languages[0] !== undefined ? job.languages[0] : ''}</span>
+            <span class="tecnology-span lang2 ${job.languages[1] !== undefined ? 'lang-on' : 'lang-off'}" id="tec-span-4">${job.languages[1] !== undefined ? job.languages[1] : ''}</span>
+            <span class="tecnology-span lang3 ${job.languages[2] !== undefined ? 'lang-on' : 'lang-off'}" id="tec-span-5">${job.languages[2] !== undefined ? job.languages[2] : ''}</span>
+            <span onclick="filtroTESTE()" class="tecnology-span tool1 ${job.tools[0] !== undefined ? 'tool-on' : 'tool-off'}" id="tec-span-6">${job.tools[0] !== undefined ? job.tools[0] : ''}</span>
+            <span class="tecnology-span tool2 ${job.tools[1] !== undefined ? 'tool-on' : 'tool-off'}" id="tec-span-7">${job.tools[1] !== undefined ? job.tools[1] : ''}</span>
           </div>
         </div>`;
                     jobListingsDiv.appendChild(jobDiv);
@@ -71,6 +150,9 @@
               } 
             }
             window.onload = fetchJobListings;
+
+            
             </script>
+            <script src="./script.js"></script>
 </body>
 </html>
