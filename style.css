@@ -25,11 +25,78 @@ header{
 
     z-index: 12;
     top: 0;
+    width: 100%;
+}
+
+.filtro-box{
+
+    display: flex;
+    background-color: hsl(180, 31%, 95%);
+    margin: 30px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.466);
+    padding: 50px;
+}
+
+.sub-filtro-box{
+
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}
+
+.onfilter{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    height: 40px;
+}
+
+.onfilter{
+
+    cursor: pointer;
+}
+
+.onfilter button{
+
+    height: 44px;
+    min-width: 100px;
+    cursor: pointer;
+    border: transparent 4px solid;
+}
+
+.onfilter img{
+
+    padding: 15px;
+    background-color: hsla(180, 29%, 50%, 0.783);
+}
+
+.clear-box{
+
+    height: 100%;
+    display: flex;
+    text-align: center;
+    width: min-content;
+}
+
+.clear{
+
+    color: hsl(180, 29%, 50%);
+    cursor: pointer;
+
+}
+
+.clear:hover{
+
+    text-decoration: underline;
 }
 
 main{
 
     width: 100%;
+    /* display: none; */
+    /* tirar depois */
 }
 
 li{
