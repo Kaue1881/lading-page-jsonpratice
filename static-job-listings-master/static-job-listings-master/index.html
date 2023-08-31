@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="./script.js"></script>
+  
+  <title>Frontend Mentor | Job Listings</title>
+</head>
+<body>
+
+  <head></head>
+  <main>
+    <ul class="lista-user" id="lista-user">
+      <li>
+        <div class="box-user">
+          <img class="logo-user" src="./images/photosnap.svg" alt="" width="70">
+          <div class="info-user">
+            <div class="info-duplex">
+              <h5 class="cargo">cargo</h5>
+              <mark class="mark">New</mark> <br>
+            </div>
+              <h4 class="name-user">name-user</h4> <br> <br>
+              <fieldset class="box-legend">
+                <small>legend | legend</small>
+              </fieldset>
+          </div>
+
+          <div class="tecnology">
+            <span class="tecnology-span">js</span>
+            <span class="tecnology-span">html</span>
+            <span class="tecnology-span">css</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <script>
+     fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      // 'data' é agora um array de objetos
+        console.log(data);
+      
+    })
+    .catch(error => {
+      console.error('Erro ao carregar o JSON:', error);
+    });
+  </script>
+
+</body>
+</html>

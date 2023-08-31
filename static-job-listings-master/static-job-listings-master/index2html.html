@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <script>
+
+//         fetch("data.json").then(response => {
+//             response.json().then((data) => {
+//                 console.log(data);
+//     })
+// })
+
+// Função para buscar e consumir os dados JSON
+async function fetchData() {
+  try {
+    const response = await fetch('data.json');
+    const data = await response.json();
+    
+    // Processar e exibir os dados
+    data.forEach(job => {
+      console.log(`Company: ${job.company}`);
+      console.log(`Position: ${job.position}`);
+      console.log(`Role: ${job.role}`);
+      console.log(`Level: ${job.level}`);
+      console.log(`Location: ${job.location}`);
+      console.log('---');
+    });
+  } catch (error) {
+    console.error('Erro ao buscar dados:', error);
+  }
+}
+
+// Chamar a função para buscar e consumir os dados
+fetchData();
+    </script>
+    
+</body>
+</html>
